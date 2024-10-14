@@ -66,7 +66,7 @@ def client_id_query(
 
 
 @app.get(
-    "/ws/stats",
+    "/tiktok-ws/stats",
     tags=["WebSocket"],
 )
 async def ws_stats():
@@ -80,7 +80,7 @@ async def ws_stats():
     return JSONResponse(status_code=200, content=app.ws_manager.stats)
 
 
-@app.websocket(path="/ws")
+@app.websocket(path="/tiktok-ws")
 async def ws_endpoint(
         websocket: WebSocket,
         unique_id: str,
