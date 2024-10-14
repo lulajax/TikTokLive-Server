@@ -1,4 +1,5 @@
 import logging
+import os
 from contextlib import asynccontextmanager
 from typing import AsyncContextManager, Optional
 
@@ -83,7 +84,7 @@ async def ws_stats():
 async def ws_endpoint(
         websocket: WebSocket,
         unique_id: str,
-        api_key: str
+        api_key: str | None = os.environ.get('SIGN_API_KEY')
 ) -> None:
     """
     Create websocket connections to specific creators
